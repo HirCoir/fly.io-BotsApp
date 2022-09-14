@@ -52,9 +52,4 @@ pero lo recomendable es tener solo 1GB.
 8. Ejecutamos "fly launch" para desplegar el contenedor de nuesta APP.
 Es importante que su app esté dentro de la carpeta "/app" ya que ahí es donde se montó la unidad persistente.
 
-    dd if=/dev/zero of=/swapfile bs=1024 count=1048576 && \
-    chmod 600 /swapfile && \
-    mkswap /swapfile && \
-    swapon /swapfile && \
-    sysctl vm.swappiness=10 && \
-    echo "vm.swappiness=10" >> /etc/sysctl.conf
+

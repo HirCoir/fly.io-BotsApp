@@ -26,13 +26,13 @@ Permitir al contenedor escuchar el puerto SSH externamentee
     port = 22
 ```
 
-```
-
 7. Crear una unidad persistente con el comando "fly volumes create myapp_data --region lhr --size 1"
 Es importante tener en cuenta que en total solo podemos tener 3GB en total de unidades persistente
-pero lo recomendable es tener solo 1GB.
+pero lo recomendable es tener solo 1GB para poder asignar 1GB a los 3 contenedors gratuitos.
 
 8. Ejecutamos "fly launch" para desplegar el contenedor de nuesta APP.
 Es importante que su app esté dentro de la carpeta "/app" ya que ahí es donde se montó la unidad persistente.
+![alt text]([http://url/to/img.png](https://i.ibb.co/p2wGpk9/critial-error.jpg))
+Finalmente mostrará un mensaje así
 
 

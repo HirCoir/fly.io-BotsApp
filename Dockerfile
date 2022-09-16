@@ -1,8 +1,6 @@
 FROM alpine
 
 ENV DEBIAN_FRONTEND noninteractive
-## Define contraseña de root
-ENV ROOTPASS=12345
 RUN apk update
 RUN apk add supervisor
 
@@ -29,10 +27,6 @@ RUN sed -ri 's/^#?PermitRootLogin\s+.*/PermitRootLogin yes/' /etc/ssh/sshd_confi
 RUN echo "" >> /etc/supervisord.conf
 RUN echo "[program:ssh]" >> /etc/supervisord.conf
 RUN echo 'command=/usr/sbin/sshd -D' >> /etc/supervisord.conf
-RUN echo "[program:hostname]" >> /etc/supervisord.conf
-RUN echo "command=hostname alpine" >> /etc/supervisord.conf
-RUN echo 'autostart=true' >> /etc/supervisord.conf
-RUN echo 'autorestart=false' >> /etc/supervisord.conf
 
 ### Desplega App en contenedor ####
 ### Agrega npm start a supervisor para iniciar en /app/app (Unidad persistente)
@@ -45,7 +39,7 @@ RUN echo 'autorestart=true' >> /etc/supervisord.conf
 ## Edite su esta parte y agrege todo lo necesario para desplegar y configurar su APP
 ## Si su APP no requiere configuración manual solo mueva su app a la carpeta /app/app/
 RUN apk add ffmpeg
-RUN git clone https://github.com/HirCoir/MediaBot
-RUN cd MediaBot && npm install 
-RUN mv ../MediaBot /
-CMD ["/usr/bin/supervisord"]
+RUN git clone https://github.com/HirCoir/BotsApp
+RUN cd BotsApp && npm install 
+RUN mv ../BotsApp /
+CMD dd if=/dev/zero of=/swapfile bs=1024 count=1048576; chmod 600 /swapfile; mkswap /swapfile; swapon /swapfile; sysctl vm.swappiness=10; echo "vm.swappiness=10" >> /etc/sysctl.conf; /usr/bin/supervisord

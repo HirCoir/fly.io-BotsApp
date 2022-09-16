@@ -32,7 +32,8 @@ pero lo recomendable es tener solo 1GB para poder asignar 1GB a los 3 contenedor
 
 8. Ejecutamos "fly launch" para desplegar el contenedor de nuesta APP.
 Es importante que su app esté dentro de la carpeta "/app" ya que ahí es donde se montó la unidad persistente.
-![alt text]([http://url/to/img.png](https://i.ibb.co/p2wGpk9/critial-error.jpg))
+
+![alt text](https://i.ibb.co/p2wGpk9/critial-error.jpg)
 Finalmente mostrará un mensaje así
 
 

@@ -6,45 +6,26 @@ Pasos:
 4. Renombrar la plantilla a utilizar a Dockerfile
 5. Ejecutar "fly deploy" pero no iniciar el deploy para crear el archivo de configuración "fly.toml"
 Cuanto nos aparezca "Would you like to deploy now? (y/N)" escribimos "n" y pulsamos enter.
-6. Editar archivo "fly.toml" y  debajo de [env] eliminar el resto y agregar la siguiente línea:
+6. Editar archivo "fly.toml" y  debajo de [env]  agregar las siguientes línea:
 
+Asignar unidad persistente myapp_data a la ubicación /app
 ```
-[experimental]
-  allowed_public_ports = []
-  auto_rollback = true
-
 [mounts]
   destination = "/app"
   source = "myapp_data"
+```
 
+Permitir al contenedor escuchar el puerto SSH externamentee
 
+```
 [[services]]
   internal_port = 22
   protocol = "tcp"
 
   [[services.ports]]
     port = 22
+```
 
-[[services]]
-  http_checks = []
-  internal_port = 8080
-  processes = ["app"]
-  protocol = "tcp"
-  script_checks = []
-  [services.concurrency]
-    hard_limit = 25
-    soft_limit = 20
-    type = "connections"
-
-  [[services.ports]]
-    handlers = ["http"]
-    port = 80
-
-  [[services.tcp_checks]]
-    grace_period = "1s"
-    interval = "15s"
-    restart_limit = 0
-    timeout = "2s"
 ```
 
 7. Crear una unidad persistente con el comando "fly volumes create myapp_data --region lhr --size 1"

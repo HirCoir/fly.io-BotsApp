@@ -37,3 +37,21 @@ Es importante que su app esté dentro de la carpeta "/app" ya que ahí es donde 
 
 Finalmente mostrará un mensaje así, se quedará congelada la terminal ya que no ha detectado un protocolo http en el puerto interno (8080)
 Solo pulsa Ctrl + C.
+
+9. Accede vía ssh al contenedor.
+10. dentro de el accede a la carpeta de BotsApp
+```
+cd /BotsApp
+```
+11. Inicia BotsApp
+```
+npm start
+```
+12. Escanee el código y ya escaneado detenga el "Bot Ctrl + C"
+13. copie el bot a la carpeta /app/app/ para que este inicie automáticamente
+```
+mv ../BotsApp/ /app/app
+```
+14. Espere a que inicie y esté en línea.
+15. A disfrutar de BotsApp!
+

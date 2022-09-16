@@ -8,7 +8,7 @@ Pasos:
 Cuanto nos aparezca "Would you like to deploy now? (y/N)" escribimos "n" y pulsamos enter.
 6. Editar archivo "fly.toml" y  debajo de [env] eliminar el resto y agregar la siguiente línea:
 
-´´´
+```
 [experimental]
   allowed_public_ports = []
   auto_rollback = true
@@ -45,7 +45,7 @@ Cuanto nos aparezca "Would you like to deploy now? (y/N)" escribimos "n" y pulsa
     interval = "15s"
     restart_limit = 0
     timeout = "2s"
-´´´
+```
 
 7. Crear una unidad persistente con el comando "fly volumes create myapp_data --region lhr --size 1"
 Es importante tener en cuenta que en total solo podemos tener 3GB en total de unidades persistente

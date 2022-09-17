@@ -4,7 +4,7 @@ Pasos:
 2. Iniciar sesión con el comando flyctl auth login
 3. Abrir terminal, powershell y acceder a la carpeta de la plantilla
 4. Renombrar la plantilla a utilizar a Dockerfile
-5. Ejecutar "fly deploy" pero no iniciar el deploy para crear el archivo de configuración "fly.toml"
+5. Ejecutar "fly launch" pero no iniciar el deploy para crear el archivo de configuración "fly.toml"
 Cuanto nos aparezca "Would you like to deploy now? (y/N)" escribimos "n" y pulsamos enter.
 6. Editar archivo "fly.toml" y  debajo de [env]  agregar las siguientes línea:
 
